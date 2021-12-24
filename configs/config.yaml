@@ -1,0 +1,54 @@
+Server:
+  RunMode: debug
+  HttpPort: 8000
+  ReadTimeout: 60
+  WriteTimeout: 60
+App:
+  DefaultPageSize: 10
+  MaxPageSize: 100
+  LogSavePath: storage/logs
+  LogFileName: app
+  LogFileExt: .log
+  AUTHPREFIX: /admin
+  SuperAdminUser: admin
+Database:
+  DBType: mysql
+  Username: root  # 填写你的数据库账号
+  Password: root  # 填写你的数据库密码
+  Host: 127.0.0.1:3306
+  DBName: pandora_admin
+  TablePrefix:
+  Charset: utf8mb4
+  ParseTime: True
+  MaxIdleConns: 10
+  MaxOpenConns: 30
+Token:
+  Issuer: mikou
+  Subject: user login
+  Expires: 7200
+  Key: key
+
+
+DatabaseV2:
+  default:
+    DBType: mysql
+    Username: root  # 填写你的数据库账号
+    Password: root  # 填写你的数据库密码
+    Host: 127.0.0.1:3306
+    DBName: pandora_admin
+    TablePrefix:
+    Charset: utf8mb4
+    ParseTime: True
+    MaxIdleConns: 10
+    MaxOpenConns: 30
+  center:
+    DBType: mysql
+    Username: root  # 填写你的数据库账号
+    Password: root  # 填写你的数据库密码
+    Host: 127.0.0.1:3306
+    DBName: pandora_admin2
+    TablePrefix:
+    Charset: utf8mb4
+    ParseTime: True
+    MaxIdleConns: 10
+    MaxOpenConns: 30
