@@ -3,12 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="57da0a98-af29-4579-8a11-6cebab8df9ee" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/global/setting.go" beforeDir="false" afterPath="$PROJECT_DIR$/global/setting.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/model/v2/model.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/model/v2/model.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/setting/section.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/setting/section.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/setting/setting.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/storage/logs/app.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/app.log" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
