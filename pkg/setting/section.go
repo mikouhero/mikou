@@ -32,6 +32,7 @@ type DatabaseSettingS  struct {
 	MaxOpenConns int
 }
 type DatabaseSettingSV2   map[string]DatabaseSettingS
+
 type TokenSettingS struct {
 	Issuer  string
 	Subject string
@@ -39,11 +40,3 @@ type TokenSettingS struct {
 	Key     string
 }
 
-func (s *Setting) ReadSection(k string, v interface{}) error {
-	err := s.vp.UnmarshalKey(k, v)
-	if err != nil {
-		return err
-	}
-
-	return nil
-}
