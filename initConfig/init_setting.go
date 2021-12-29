@@ -18,11 +18,13 @@ func Initialization() {
 	e := initSetting()
 	if e != nil {
 		log.Fatalf("init.setting  err: %v", e)
+		global.LoggerV2.Fatalf("init.setting  err: %v", e)
 	}
 
 	initDb()
 
 	_ = initLog()
+	initlog2()
 }
 
 func initSetting() error {
@@ -77,7 +79,8 @@ func NewSetting() (*Setting, error) {
 
 	vp.WatchConfig()
 	vp.OnConfigChange(func(e fsnotify.Event) {
-		Initialization()
+		//Initialization()
+		//todo
 	})
 	return &Setting{vp}, nil
 }

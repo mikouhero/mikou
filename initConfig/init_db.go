@@ -1,7 +1,6 @@
 package initConfig
 
 import (
-	"log"
 	"mikou/global"
 
 	model "mikou/internal/model/v1"
@@ -11,7 +10,8 @@ import (
 func initDb() {
 	e := setupDBEngineV2()
 	if e!=nil {
-		log.Fatalf("init.db err: %v", e)
+		//log.Fatalf("init.db err: %v", e)
+		global.LoggerV2.Errorf("init.db err: %v", e)
 	}
 }
 func setupDBEngine() error {

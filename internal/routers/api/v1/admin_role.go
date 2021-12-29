@@ -67,7 +67,9 @@ func (a AdminRole) Create(c *gin.Context) {
 	response := app.NewResponse(c)
 	valid, errs := app.BindAndValid(c, &param)
 	if !valid {
-		global.Logger.Errorf("app.BindAndValid errs: %v", errs)
+		//global.Logger.Errorf("app.BindAndValid errs: %v", errs)
+		global.LoggerV2.Errorf("app.BindAndValid errs: %v", errs)
+
 		response.ToErrorResponse(errcode.InvalidParams.WithDetails(errs.Errors()...))
 		return
 	}
@@ -78,8 +80,10 @@ func (a AdminRole) Create(c *gin.Context) {
 	roleId, err := svc.CreateAdminRole(&param)
 
 	if err != nil {
-		global.Logger.Errorf("svc.CreateAdminRole err: %v", err)
+		//global.Logger.Errorf("svc.CreateAdminRole err: %v", err)
+		global.LoggerV2.Errorf("app.BindAndValid errs: %v", errs)
 		response.ToErrorResponse(errcode.ServerError)
+
 		return
 	}
 	var r = map[string]interface{}{
@@ -95,7 +99,9 @@ func (a AdminRole) Update(c *gin.Context) {
 	response := app.NewResponse(c)
 	valid, errs := app.BindAndValid(c, &param)
 	if !valid {
-		global.Logger.Errorf("app.BindAndValid errs: %v", errs)
+		//global.Logger.Errorf("app.BindAndValid errs: %v", errs)
+		global.LoggerV2.Errorf("app.BindAndValid errs: %v", errs)
+
 		response.ToErrorResponse(errcode.InvalidParams.WithDetails(errs.Errors()...))
 		return
 	}
@@ -117,7 +123,7 @@ func (a AdminRole) Delete(c *gin.Context) {
 	response := app.NewResponse(c)
 	valid, errs := app.BindAndValid(c, &param)
 	if !valid {
-		global.Logger.Errorf("app.BindAndValid errs: %v", errs)
+		global.LoggerV2.Errorf("app.BindAndValid errs: %v", errs)
 		response.ToErrorResponse(errcode.InvalidParams.WithDetails(errs.Errors()...))
 		return
 	}
@@ -125,7 +131,7 @@ func (a AdminRole) Delete(c *gin.Context) {
 	svc := service.New(c.Request.Context())
 	err := svc.DeleteAdminRole(&param)
 	if err != nil {
-		global.Logger.Errorf("svc.DeleteAdminRole err: %v", err)
+		global.LoggerV2.Errorf("svc.DeleteAdminRole err: %v", err)
 		response.ToErrorResponse(errcode.ServerError)
 		return
 	}
@@ -144,7 +150,7 @@ func (a AdminRole) All(c *gin.Context) {
 	list, err := svc.AllAdminRole()
 
 	if err != nil {
-		global.Logger.Errorf("svc.AllAdminRole err: %v", err)
+		global.LoggerV2.Errorf("svc.AllAdminRole err: %v", err)
 		response.ToErrorResponse(errcode.ServerError)
 		return
 	}
@@ -162,7 +168,7 @@ func (a AdminRole) Find(c *gin.Context) {
 	response := app.NewResponse(c)
 	valid, errs := app.BindAndValid(c, &param)
 	if !valid {
-		global.Logger.Errorf("app.BindAndValid errs: %v", errs)
+		global.LoggerV2.Errorf("app.BindAndValid errs: %v", errs)
 		response.ToErrorResponse(errcode.InvalidParams.WithDetails(errs.Errors()...))
 		return
 	}
@@ -170,7 +176,7 @@ func (a AdminRole) Find(c *gin.Context) {
 	svc := service.New(c.Request.Context())
 	role ,err := svc.FindAdminRole(&param)
 	if err != nil {
-		global.Logger.Errorf("svc.FindAdminRole err: %v", err)
+		global.LoggerV2.Errorf("svc.FindAdminRole err: %v", err)
 		response.ToErrorResponse(errcode.ServerError)
 		return
 	}

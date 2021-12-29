@@ -30,7 +30,9 @@ func (a AdminUser) List(c *gin.Context) {
 	response := app.NewResponse(c)
 	valid, errs := app.BindAndValid(c, &param)
 	if !valid {
-		global.Logger.Errorf("app.BindAndValid errs: %v", errs)
+		//global.Logger.Errorf("app.BindAndValid errs: %v", errs)
+		global.LoggerV2.Errorf("app.BindAndValid errs: %v", errs)
+
 		response.ToErrorResponse(errcode.InvalidParams.WithDetails(errs.Errors()...))
 		return
 	}
@@ -44,7 +46,9 @@ func (a AdminUser) List(c *gin.Context) {
 
 
 	if err != nil {
-		global.Logger.Errorf("svc.CountAdminUser err: %v", err)
+		//global.Logger.Errorf("svc.CountAdminUser err: %v", err)
+		global.LoggerV2.Errorf("app.CountAdminUser errs: %v", err)
+
 		response.ToErrorResponse(errcode.ServerError)
 		return
 	}
@@ -53,7 +57,9 @@ func (a AdminUser) List(c *gin.Context) {
 	list, err := svc.ListAdminUser(&param, &pager)
 
 	if err != nil {
-		global.Logger.Errorf("svc.ListAdminUser err: %v", err)
+		//global.Logger.Errorf("svc.ListAdminUser err: %v", err)
+		global.LoggerV2.Error("app.ListAdminUser errs", err)
+
 		response.ToErrorResponse(errcode.ServerError)
 		return
 	}
@@ -68,7 +74,9 @@ func (a AdminUser) Create(c *gin.Context) {
 	response := app.NewResponse(c)
 	valid, errs := app.BindAndValid(c, &param)
 	if !valid {
-		global.Logger.Errorf("app.BindAndValid errs: %v", errs)
+		//global.Logger.Errorf("app.BindAndValid errs: %v", errs)
+		global.LoggerV2.Errorf("app.BindAndValid errs: %v", errs)
+
 		response.ToErrorResponse(errcode.InvalidParams.WithDetails(errs.Errors()...))
 		return
 	}
@@ -84,7 +92,8 @@ func (a AdminUser) Create(c *gin.Context) {
 	userId, err := svc.CreateAdminUser(&param)
 
 	if err != nil {
-		global.Logger.Errorf("svc.CreateAdminUser err: %v", err)
+		//global.Logger.Errorf("svc.CreateAdminUser err: %v", err)
+		global.LoggerV2.Errorf("app.BindAndValid errs: %v", errs)
 		response.ToErrorResponse(errcode.ServerError)
 		return
 	}
@@ -101,7 +110,9 @@ func (a AdminUser) Update(c *gin.Context) {
 	response := app.NewResponse(c)
 	valid, errs := app.BindAndValid(c, &param)
 	if !valid {
-		global.Logger.Errorf("app.BindAndValid errs: %v", errs)
+		//global.Logger.Errorf("app.BindAndValid errs: %v", errs)
+		global.LoggerV2.Errorf("app.BindAndValid errs: %v", errs)
+
 		response.ToErrorResponse(errcode.InvalidParams.WithDetails(errs.Errors()...))
 		return
 	}
@@ -118,7 +129,9 @@ func (a AdminUser) Update(c *gin.Context) {
 
 	err := svc.UpdateAdminUser(&param)
 	if err != nil {
-		global.Logger.Errorf("svc.UpdateAdminUser err: %v", err)
+		//global.Logger.Errorf("svc.UpdateAdminUser err: %v", err)
+		global.LoggerV2.Errorf("app.BindAndValid errs: %v", errs)
+
 		response.ToErrorResponse(errcode.ServerError)
 		return
 	}

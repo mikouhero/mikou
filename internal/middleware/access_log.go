@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"github.com/gin-gonic/gin"
 	"mikou/global"
-	"mikou/pkg/logger"
 	"time"
 )
 
@@ -20,7 +19,6 @@ func (w AccessLogWriter) Write(p []byte) (int, error) {
 	return w.ResponseWriter.Write(p)
 }
 
-
 func AccessLog() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		bodyWriter := &AccessLogWriter{body: bytes.NewBufferString(""), ResponseWriter: c.Writer}
@@ -30,16 +28,20 @@ func AccessLog() gin.HandlerFunc {
 		c.Next()
 		endTime := time.Now().Unix()
 
-		fields := logger.Fields{
-			"request":  c.Request.PostForm.Encode(),
-			"response": bodyWriter.body.String(),
-		}
-		global.Logger.WithFields(fields).Infof("access log: method: %s, status_code: %d, begin_time: %d, end_time: %d",
-			c.Request.Method,
-			bodyWriter.Status(),
+		//fields := logger.Fields{
+		//	"request":  c.Request.PostForm.Encode(),
+		//	"response": bodyWriter.body.String(),
+		//}
+		global.LoggerV2.With("request: ", c.Request.PostForm.Encode(), "response: ", bodyWriter.body.String(), ).Infof("URL: %s  begin_time: %d, end_time: %d",
+			c.Request.URL,
 			beginTime,
 			endTime,
 		)
+		//global.Logger.WithFields(fields).Infof("access log: method: %s, status_code: %d, begin_time: %d, end_time: %d",
+		//	c.Request.Method,
+		//	bodyWriter.Status(),
+		//	beginTime,
+		//	endTime,
+		//)
 	}
 }
-

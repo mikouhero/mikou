@@ -39,7 +39,9 @@ func (a AdminMenu) Create(c *gin.Context) {
 	response := app.NewResponse(c)
 	valid, errs := app.BindAndValid(c, &param)
 	if !valid {
-		global.Logger.Errorf("app.BindAndValid errs: %v", errs)
+		//global.Logger.Errorf("app.BindAndValid errs: %v", errs)
+		global.LoggerV2.Errorf("app.BindAndValid errs: %v", errs)
+
 		response.ToErrorResponse(errcode.InvalidParams.WithDetails(errs.Errors()...))
 		return
 	}
@@ -50,7 +52,7 @@ func (a AdminMenu) Create(c *gin.Context) {
 	roleId, err := svc.CreateAdminMenu(&param)
 
 	if err != nil {
-		global.Logger.Errorf("svc.CreateAdminMenu err: %v", err)
+		global.LoggerV2.Errorf("svc.CreateAdminMenu err: %v", err)
 		response.ToErrorResponse(errcode.ServerError)
 		return
 	}
@@ -75,7 +77,7 @@ func (a AdminMenu) Update(c *gin.Context) {
 	svc := service.New(c.Request.Context())
 	err := svc.UpdateAdminMenu(&param)
 	if err != nil {
-		global.Logger.Errorf("svc.UpdateAdminMenu err: %v", err)
+		global.LoggerV2.Errorf("svc.UpdateAdminMenu err: %v", err)
 		response.ToErrorResponse(errcode.ServerError)
 		return
 	}
@@ -89,7 +91,7 @@ func (a AdminMenu) Delete(c *gin.Context) {
 	response := app.NewResponse(c)
 	valid, errs := app.BindAndValid(c, &param)
 	if !valid {
-		global.Logger.Errorf("app.BindAndValid errs: %v", errs)
+		global.LoggerV2.Errorf("app.BindAndValid errs: %v", errs)
 		response.ToErrorResponse(errcode.InvalidParams.WithDetails(errs.Errors()...))
 		return
 	}
@@ -97,7 +99,7 @@ func (a AdminMenu) Delete(c *gin.Context) {
 	svc := service.New(c.Request.Context())
 	err := svc.DeleteAdminMenu(&param)
 	if err != nil {
-		global.Logger.Errorf("svc.DeleteAdminMenu err: %v", err)
+		global.LoggerV2.Errorf("svc.DeleteAdminMenu err: %v", err)
 		response.ToErrorResponse(errcode.ServerError)
 		return
 	}
@@ -111,7 +113,7 @@ func (a AdminMenu) Find(c *gin.Context) {
 	response := app.NewResponse(c)
 	valid, errs := app.BindAndValid(c, &param)
 	if !valid {
-		global.Logger.Errorf("app.BindAndValid errs: %v", errs)
+		global.LoggerV2.Errorf("app.BindAndValid errs: %v", errs)
 		response.ToErrorResponse(errcode.InvalidParams.WithDetails(errs.Errors()...))
 		return
 	}
@@ -120,7 +122,7 @@ func (a AdminMenu) Find(c *gin.Context) {
 	menu, e := svc.FindAdminMenu(&param)
 	err := e
 	if err != nil {
-		global.Logger.Errorf("svc.DeleteAdminMenu err: %v", err)
+		global.LoggerV2.Errorf("svc.DeleteAdminMenu err: %v", err)
 		response.ToErrorResponse(errcode.ServerError)
 		return
 	}

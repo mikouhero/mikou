@@ -20,7 +20,8 @@ func (a *AdminLogin) Login(c *gin.Context) {
 	response := app.NewResponse(c)
 	valid, errs := app.BindAndValid(c, &param)
 	if !valid {
-		global.Logger.Errorf("app.BindAndValid errs: %v", errs)
+		//global.Logger.Errorf("app.BindAndValid errs: %v", errs)
+		global.LoggerV2.Errorf("app.BindAndValid errs: %v", errs)
 		response.ToErrorResponse(errcode.InvalidParams.WithDetails(errs.Errors()...))
 		return
 	}
