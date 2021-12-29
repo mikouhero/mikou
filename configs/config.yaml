@@ -9,6 +9,8 @@ App:
   LogSavePath: storage/logs
   LogFileName: app
   LogFileExt: .log
+  LogMaxSize: 1
+  LogMaxAge: 60
   AUTHPREFIX: /admin
   SuperAdminUser: admin
 Database:
@@ -28,7 +30,6 @@ Token:
   Expires: 7200
   Key: key
 
-
 DatabaseV2:
   default:
     DBType: mysql
@@ -46,7 +47,7 @@ DatabaseV2:
     Username: root  # 填写你的数据库账号
     Password: root  # 填写你的数据库密码
     Host: 127.0.0.1:3306
-    DBName: pandora_admin2
+    DBName: pandora_admin
     TablePrefix:
     Charset: utf8mb4
     ParseTime: True
