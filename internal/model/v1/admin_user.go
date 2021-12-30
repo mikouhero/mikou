@@ -1,7 +1,6 @@
 package v1
 
 import (
-	"errors"
 	"fmt"
 	//"github.com/jinzhu/gorm"
 	"gorm.io/gorm"
@@ -56,7 +55,6 @@ func (a *AdminUser) Count(db *gorm.DB) (int, error) {
 // 用户列表
 func (a *AdminUser) List(db *gorm.DB, pageOffset, pageSize int) ([]*AdminUserForDao, error) {
 	var err error
-	return  nil,errors.New("啦啦啦啦")
 	if pageOffset >= 0 && pageSize > 0 {
 		db = db.Offset(pageOffset).Limit(pageSize)
 	}

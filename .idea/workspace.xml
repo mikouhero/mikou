@@ -3,17 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="57da0a98-af29-4579-8a11-6cebab8df9ee" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/global/setting.go" beforeDir="false" afterPath="$PROJECT_DIR$/global/setting.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/initConfig/init_db.go" beforeDir="false" afterPath="$PROJECT_DIR$/initConfig/init_db.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/initConfig/init_log.go" beforeDir="false" afterPath="$PROJECT_DIR$/initConfig/init_log.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/initConfig/init_setting.go" beforeDir="false" afterPath="$PROJECT_DIR$/initConfig/init_setting.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/middleware/access_log.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/middleware/access_log.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/middleware/recovery.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/middleware/recovery.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/model/v1/admin_user.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/model/v1/admin_user.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/routers/api/v1/admin_login.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/routers/api/v1/admin_login.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/routers/api/v1/admin_menu.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/routers/api/v1/admin_menu.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/routers/api/v1/admin_role.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/routers/api/v1/admin_role.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/routers/api/v1/admin_user.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/routers/api/v1/admin_user.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />

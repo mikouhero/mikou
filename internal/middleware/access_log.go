@@ -24,18 +24,18 @@ func AccessLog() gin.HandlerFunc {
 		bodyWriter := &AccessLogWriter{body: bytes.NewBufferString(""), ResponseWriter: c.Writer}
 		c.Writer = bodyWriter
 
-		beginTime := time.Now().Unix()
+		beginTime := time.Now().UnixNano()
 		c.Next()
-		endTime := time.Now().Unix()
+		endTime := time.Now().UnixNano()
 
 		//fields := logger.Fields{
 		//	"request":  c.Request.PostForm.Encode(),
 		//	"response": bodyWriter.body.String(),
 		//}
-		global.LoggerV2.With("request: ", c.Request.PostForm.Encode(), "response: ", bodyWriter.body.String(), ).Infof("URL: %s  begin_time: %d, end_time: %d",
+		sepend := float64(endTime - beginTime) / 1e6
+		global.LoggerV2.With("request: ", c.Request.PostForm.Encode(), "response: ", bodyWriter.body.String(), ).Infof("URL: %s  spend: %f ms",
 			c.Request.URL,
-			beginTime,
-			endTime,
+			sepend,
 		)
 		//global.Logger.WithFields(fields).Infof("access log: method: %s, status_code: %d, begin_time: %d, end_time: %d",
 		//	c.Request.Method,

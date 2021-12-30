@@ -1,3 +1,5 @@
 /storage/
 /configs/
 /storage/logs/*
+main
+.idea

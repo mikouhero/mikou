@@ -1,11 +1,12 @@
 package main
 
 import (
+	"github.com/fvbock/endless"
 	"github.com/gin-gonic/gin"
 	"mikou/global"
 	"mikou/initConfig"
 	"mikou/internal/routers"
-	"net/http"
+	"syscall"
 )
 
 func init() {
@@ -19,13 +20,23 @@ func main() {
 
 	gin.SetMode(global.ServerSetting.RunMode)
 	router := routers.NewRouter()
-	s := &http.Server{
-		Addr:           ":" + global.ServerSetting.HttpPort,
-		Handler:        router,
-		ReadTimeout:    global.ServerSetting.ReadTimeout,
-		WriteTimeout:   global.ServerSetting.WriteTimeout,
-		MaxHeaderBytes: 1 << 20,
+
+	endless.DefaultReadTimeOut = global.ServerSetting.ReadTimeout
+	endless.DefaultWriteTimeOut = global.ServerSetting.WriteTimeout
+	endless.DefaultMaxHeaderBytes = 1 << 20
+
+	s := endless.NewServer(":"+global.ServerSetting.HttpPort, router)
+	s.BeforeBegin = func(add string) {
+		global.LoggerV2.Infof("System begin  and  Actual pid is %d", syscall.Getpid())
 	}
+
+	//s := &http.Server{
+	//	Addr:           ":" + global.ServerSetting.HttpPort,
+	//	Handler:        router,
+	//	ReadTimeout:    global.ServerSetting.ReadTimeout,
+	//	WriteTimeout:   global.ServerSetting.WriteTimeout,
+	//	MaxHeaderBytes: 1 << 20,
+	//}
 	_ = s.ListenAndServe()
 
 }
