@@ -1,6 +1,7 @@
 package global
 
 import (
+	"github.com/robfig/cron/v3"
 	"go.uber.org/zap"
 	"mikou/pkg/logger"
 	"mikou/pkg/setting"
@@ -14,4 +15,5 @@ var (
 	Logger            *logger.Logger
 	LoggerV2          *zap.SugaredLogger
 	TokenSetting      *setting.TokenSettingS
+	Cron              *cron.Cron
 )

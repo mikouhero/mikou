@@ -5,16 +5,21 @@ import (
 	"mikou/global"
 	"mikou/internal/middleware"
 	v1 "mikou/internal/routers/api/v1"
+	"net/http"
 )
 
 func NewRouter() *gin.Engine {
 
 	r := gin.New()
+
+	r.StaticFS("/form-generator", http.Dir("storage/static/form-generator"))
+
 	middleware.InitMiddleware(r)
 	adminUser := v1.NewAdminUser()
 	adminRole := v1.NewAdminRole()
 	adminMenu := v1.NewAdminMenu()
 	adminLogin := v1.NewAdminLogin()
+	job := v1.NewJob()
 
 	r.Any("/admin/login", adminLogin.Login)
 
@@ -40,6 +45,10 @@ func NewRouter() *gin.Engine {
 		auth.Any("/menu/delete", adminMenu.Delete)
 		auth.Any("/menu/find", adminMenu.Find)
 
+		auth.Any("/job/list", job.List)
+		auth.Any("/job/create", job.Create)
+		auth.Any("/job/update", job.Update)
+		auth.Any("/job/delete", job.Delete)
 
 		auth.Any("/login/logout", adminLogin.LogOut)
 		auth.Any("/login/user_info", adminLogin.UserInfo)

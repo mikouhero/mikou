@@ -1,7 +1,6 @@
 package v1
 
 import (
-	"fmt"
 	//"github.com/jinzhu/gorm"
 	"gorm.io/gorm"
 )
@@ -85,7 +84,6 @@ func (a *AdminUser) List(db *gorm.DB, pageOffset, pageSize int) ([]*AdminUserFor
 
 //创建用户
 func (a *AdminUser) Create(db *gorm.DB) (int, error) {
-	fmt.Println(a)
 	err := db.Create(&a).Error
 	return a.ID, err
 }

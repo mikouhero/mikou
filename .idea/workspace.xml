@@ -2,7 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="57da0a98-af29-4579-8a11-6cebab8df9ee" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/internal/Job/v1/job_list.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/configs/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/configs/config.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/global/setting.go" beforeDir="false" afterPath="$PROJECT_DIR$/global/setting.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/initConfig/init_setting.go" beforeDir="false" afterPath="$PROJECT_DIR$/initConfig/init_setting.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/model/v1/admin_user.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/model/v1/admin_user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/model/v2/model.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/model/v2/model.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/routers/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/routers/router.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -50,23 +59,24 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="C:/phpstudy_pro/WWW/pandora" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/internal/routers/api/v1" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="MTConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\mikou.hu\go\src\pandora\internal\service\v1" />
-      <recent name="C:\Users\mikou.hu\go\src\pandora\internal\validate\v1" />
-      <recent name="C:\Users\mikou.hu\go\src\pandora\internal\routers\api\v1" />
-      <recent name="C:\Users\mikou.hu\go\src\pandora\internal\dao\v1" />
-      <recent name="C:\Users\mikou.hu\go\src\pandora\internal\model\v1" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\mikou.hu\go\src\mikou\storage" />
       <recent name="C:\Users\mikou.hu\go\src\pandora" />
       <recent name="C:\Users\mikou.hu\go\src\pandora\internal\service\v1" />
       <recent name="C:\Users\mikou.hu\go\src\pandora\internal\validate\v1" />
       <recent name="C:\Users\mikou.hu\go\src\pandora\internal\model\v1" />
-      <recent name="C:\Users\mikou.hu\go\src\pandora\internal\dao\v1" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\mikou.hu\go\src\mikou\internal\routers\api\v1" />
+      <recent name="C:\Users\mikou.hu\go\src\mikou\internal\dao\v1" />
+      <recent name="C:\Users\mikou.hu\go\src\mikou\internal\validate\v1" />
+      <recent name="C:\Users\mikou.hu\go\src\mikou\internal\service\v1" />
+      <recent name="C:\Users\mikou.hu\go\src\mikou\static" />
     </key>
   </component>
   <component name="RunDashboard">

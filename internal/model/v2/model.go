@@ -36,7 +36,7 @@ func NewDBEngine(databaseSetting *setting.DatabaseSettingSV2) (*gorm.DB, error) 
 			Sources: []gorm.Dialector{mysql.Open(value)},
 		}, key))
 	}
-	_ = db.Callback().Create().Replace("gorm:update_time_stamp", updateTimeStampForCreateCallback)
+	//_ = db.Callback().Create().Replace("gorm:update_time_stamp", updateTimeStampForCreateCallback)
 	//_ = db.Callback().Update().Replace("gorm:update_time_stamp", updateTimeStampForUpdateCallback)
 	//_ = db.Callback().Delete().Replace("gorm:delete", deleteCallback)
 	return db, err
@@ -66,6 +66,7 @@ func updateTimeStampForCreateCallback(db *gorm.DB) {
 			_ = createTimeField.Set(db.Statement.ReflectValue, nowTime)
 
 		}
+
 		if createTimeField, ok := db.Statement.Schema.FieldsByName["UpdatedAt"]; ok {
 
 			_ = createTimeField.Set(db.Statement.ReflectValue, nowTime)

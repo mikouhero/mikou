@@ -7,7 +7,7 @@ require (
 	github.com/cpuguy83/go-md2man/v2 v2.0.1 // indirect
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/fsnotify/fsnotify v1.5.1
-	github.com/fvbock/endless v0.0.0-20170109170031-447134032cb6 // indirect
+	github.com/fvbock/endless v0.0.0-20170109170031-447134032cb6
 	github.com/gin-gonic/gin v1.7.4
 	github.com/go-openapi/spec v0.20.4 // indirect
 	github.com/go-playground/universal-translator v0.18.0
@@ -24,6 +24,8 @@ require (
 	github.com/mitchellh/mapstructure v1.4.2 // indirect
 	github.com/natefinch/lumberjack v2.0.0+incompatible // indirect
 	github.com/pelletier/go-toml v1.9.4 // indirect
+	github.com/robfig/cron v1.2.0 // indirect
+	github.com/robfig/cron/v3 v3.0.0
 	github.com/satori/go.uuid v1.2.0 // indirect
 	github.com/spf13/afero v1.6.0 // indirect
 	github.com/spf13/cast v1.4.1 // indirect

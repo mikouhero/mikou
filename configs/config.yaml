@@ -36,7 +36,7 @@ DatabaseV2:
     Username: root  # 填写你的数据库账号
     Password: root  # 填写你的数据库密码
     Host: 127.0.0.1:3306
-    DBName: admin
+    DBName: pandora_admin
     TablePrefix:
     Charset: utf8mb4
     ParseTime: True
@@ -47,11 +47,7 @@ DatabaseV2:
     Username: root  # 填写你的数据库账号
     Password: root  # 填写你的数据库密码
     Host: 127.0.0.1:3306
-<<<<<<< HEAD
     DBName: pandora_admin
-=======
-    DBName: admin2
->>>>>>> c7271ac93867a5bda0ee616a0f86483225f5cccd
     TablePrefix:
     Charset: utf8mb4
     ParseTime: True
