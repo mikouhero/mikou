@@ -6,6 +6,7 @@ import (
 	"mikou/global"
 	"mikou/initConfig"
 	"mikou/internal/routers"
+	"mikou/pkg/app"
 	"syscall"
 )
 
@@ -17,7 +18,6 @@ func init() {
 // @version 1.0
 // @description 接口文档
 func main() {
-
 	gin.SetMode(global.ServerSetting.RunMode)
 	router := routers.NewRouter()
 
