@@ -11,6 +11,7 @@ var timeFormat = "2006-01-02 15:04:05"
 type ExamplesOne struct {
 }
 
+// 执行函数
 func (t ExamplesOne) Exec(arg interface{}) error {
 	str := time.Now().Format(timeFormat) + " [INFO] JobCore ExamplesOne exec success"
 	// TODO: 这里需要注意 Examples 传入参数是 string 所以 arg.(string)；请根据对应的类型进行转化；

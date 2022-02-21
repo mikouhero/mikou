@@ -4,6 +4,7 @@ import (
 	"github.com/robfig/cron/v3"
 	"mikou/global"
 	dao "mikou/internal/dao/v1"
+	"mikou/pkg/app"
 	"time"
 )
 
@@ -111,12 +112,14 @@ func (job *ExecJob) addJob(c *cron.Cron) (int, error) {
 	return int(id), e
 }
 
-func Remove(c *cron.Cron, entryID int) chan struct{} {
+func RemoveJob(c *cron.Cron, entryID int) chan struct{} {
 	ch := make(chan struct{})
-	go func() {
+
+	f := func() {
 		c.Remove(cron.EntryID(entryID))
-		global.LoggerV2.Infof(" [INFO] JobCore Remove success ,info entryID :", entryID)
+		global.LoggerV2.Infof(" [INFO] JobCore Remove success ,info entryID : %d", entryID)
 		ch <- struct{}{}
-	}()
+	}
+	app.Go(f)
 	return ch
 }

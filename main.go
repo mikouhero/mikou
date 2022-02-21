@@ -6,7 +6,6 @@ import (
 	"mikou/global"
 	"mikou/initConfig"
 	"mikou/internal/routers"
-	"mikou/pkg/app"
 	"syscall"
 )
 
@@ -18,6 +17,7 @@ func init() {
 // @version 1.0
 // @description 接口文档
 func main() {
+
 	gin.SetMode(global.ServerSetting.RunMode)
 	router := routers.NewRouter()
 
@@ -33,7 +33,6 @@ func main() {
 	//s := &http.Server{
 	//	Addr:           ":" + global.ServerSetting.HttpPort,
 	//	Handler:        router,
-	//	ReadTimeout:    global.ServerSetting.ReadTimeout,
 	//	WriteTimeout:   global.ServerSetting.WriteTimeout,
 	//	MaxHeaderBytes: 1 << 20,
 	//}

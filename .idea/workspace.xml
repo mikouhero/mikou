@@ -3,6 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="57da0a98-af29-4579-8a11-6cebab8df9ee" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/Job/v1/job_base.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/Job/v1/job_base.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/Job/v1/list/ExamplesOne.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/Job/v1/list/ExamplesOne.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/service/v1/job.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/service/v1/job.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -152,5 +157,16 @@
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
     <proxy>https://goproxy.cn,direct</proxy>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/internal/Job/v1/job_base.go</url>
+          <line>114</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
