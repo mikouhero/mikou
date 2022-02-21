@@ -2,4 +2,4 @@
 /configs/
 /storage/logs/*
 main
-.idea
+/.idea/
