@@ -5,6 +5,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"mikou/global"
 	"mikou/initConfig"
+	"mikou/internal/Job/v1/list"
 	"mikou/internal/routers"
 	"syscall"
 )
@@ -18,6 +19,11 @@ func init() {
 // @description 接口文档
 func main() {
 
+	//data := stock.GetDayKline("0.000815")
+	//fmt.Println(data)
+	//global.DBEngineV2.Model(&v1.StockDayKline{}).CreateInBatches(data, 100)
+	list.Handel()
+	return
 	gin.SetMode(global.ServerSetting.RunMode)
 	router := routers.NewRouter()
 

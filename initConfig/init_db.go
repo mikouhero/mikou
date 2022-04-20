@@ -9,7 +9,7 @@ import (
 
 func initDb() {
 	e := setupDBEngineV2()
-	if e!=nil {
+	if e != nil {
 		//log.Fatalf("init.db err: %v", e)
 		global.LoggerV2.Errorf("init.db err: %v", e)
 	}

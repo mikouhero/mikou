@@ -34,20 +34,9 @@ DatabaseV2:
   default:
     DBType: mysql
     Username: root  # 填写你的数据库账号
-    Password: root  # 填写你的数据库密码
-    Host: 127.0.0.1:3306
-    DBName: pandora_admin
-    TablePrefix:
-    Charset: utf8mb4
-    ParseTime: True
-    MaxIdleConns: 10
-    MaxOpenConns: 30
-  center:
-    DBType: mysql
-    Username: root  # 填写你的数据库账号
-    Password: root  # 填写你的数据库密码
-    Host: 127.0.0.1:3306
-    DBName: pandora_admin
+    Password: "0511"  # 填写你的数据库密码
+    Host: 118.25.37.19:3306
+    DBName: stock
     TablePrefix:
     Charset: utf8mb4
     ParseTime: True

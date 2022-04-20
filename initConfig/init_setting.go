@@ -1,7 +1,6 @@
 package initConfig
 
 import (
-	"fmt"
 	"github.com/fsnotify/fsnotify"
 	"github.com/spf13/viper"
 	"log"
@@ -9,10 +8,8 @@ import (
 	"time"
 )
 
-
 // 统一初始化
 func Initialization() {
-	fmt.Println("我是开始 ----- 啦啦啦啦啦啦啦啦")
 
 	e := initSetting()
 	if e != nil {

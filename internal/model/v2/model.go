@@ -44,7 +44,10 @@ func NewDBEngine(databaseSetting *setting.DatabaseSettingSV2) (*gorm.DB, error) 
 
 func dsn(databaseSetting setting.DatabaseSettingSV2) map[string]string {
 	var a = make(map[string]string)
+
 	for key, value := range databaseSetting {
+		fmt.Printf("%#v", value)
+
 		a[key] = fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=%s&parseTime=%t&loc=Local",
 			value.UserName,
 			value.Password,
