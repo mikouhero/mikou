@@ -84,6 +84,7 @@ http://push2.eastmoney.com/api/qt/kamt/get?fields1=f1,f2,f3,f4&fields2=f51,f52,f
 http://push2his.eastmoney.com/api/qt/stock/kline/get?cb=jQuery112408500394100136952_1647336428552&fields1=f1,f2,f3,f4,f5,f6&fields2=f51,f52,f53,f54,f55,f56,f57,f58,f59,f60,f61&ut=7eea3edcaed734bea9cbfc24409ed989&klt=102&fqt=1&secid=0.000815&beg=0&end=20500000&_=1647336428710
 */
 
+//代码转值
 func CodeToSecid(code string) string {
 	//// 沪市指数
 	//if code[:3] == "000" {
@@ -102,12 +103,14 @@ func CodeToSecid(code string) string {
 
 }
 
+//获取日K线
 func GetDayKline(Secid string) []map[string]interface{} {
 	//gotData(Secid, 20220316, 20220316)
 	return gotData(Secid, 0, 0)
 
 }
 
+// 日K线的url
 func DayKlineUrl(Secid string, start int, end int) string {
 
 	if start == 0 && end == 0 {
@@ -126,6 +129,7 @@ func DayKlineUrl(Secid string, start int, end int) string {
 	)
 }
 
+// 组装信息
 func mapData(a []string) []map[string]interface{} {
 	var data []map[string]interface{}
 

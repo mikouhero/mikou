@@ -5,7 +5,7 @@ type CountJobRequest = ListJobRequest
 type ListJobRequest struct {
 	Name   string `form:"name" json:"name" binding:"max=100"`
 	Status int    `form:"status" json:"status" binding:"oneof= 0 1 2"`
-	Group  int    `form:"status" json:"status" binding:"oneof=0 1 2"`
+	Group  int    `form:"group" json:"group" binding:"oneof=0 1 2"`
 }
 
 type CreateJobRequest struct {

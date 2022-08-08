@@ -12,7 +12,7 @@ func NewRouter() *gin.Engine {
 
 	r := gin.New()
 
-	r.StaticFS("/form-generator", http.Dir("storage/static/form-generator"))
+	r.StaticFS("/static", http.Dir("resource"))
 
 	middleware.InitMiddleware(r)
 	adminUser := v1.NewAdminUser()

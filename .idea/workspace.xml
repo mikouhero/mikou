@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57da0a98-af29-4579-8a11-6cebab8df9ee" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/mikou.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mikou.iml" afterDir="false" />
+    <list default="true" id="57da0a98-af29-4579-8a11-6cebab8df9ee" name="Default Changelist" comment="1'&#10;==">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/configs/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/configs/config.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/initConfig/init_db.go" beforeDir="false" afterPath="$PROJECT_DIR$/initConfig/init_db.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/initConfig/init_setting.go" beforeDir="false" afterPath="$PROJECT_DIR$/initConfig/init_setting.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/model/v2/model.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/model/v2/model.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/routers/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/routers/router.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/service/stock/day_kline.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/service/stock/day_kline.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/validate/v1/job.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/validate/v1/job.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,6 +41,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="false" />
   </component>
@@ -72,17 +76,18 @@
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
     <property name="go.watchers.conflict.with.on.save.actions.check.performed" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../excel" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../gods" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="go.vgo" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\go\mikou" />
       <recent name="D:\go\mikou\internal\Job\v1\list" />
       <recent name="D:\go\mikou\internal\model\v1" />
       <recent name="C:\Users\mikou.hu\go\src\mikou\internal\routers\api\v1" />
       <recent name="C:\Users\mikou.hu\go\src\mikou\internal\dao\v1" />
-      <recent name="C:\Users\mikou.hu\go\src\mikou\internal\validate\v1" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\mikou.hu\go\src\mikou\storage" />
@@ -164,16 +169,5 @@
         <entry key="GOPROXY" value="https://goproxy.cn,direct" />
       </map>
     </environment>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/internal/Job/v1/job_base.go</url>
-          <line>114</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
