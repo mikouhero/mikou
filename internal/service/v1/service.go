@@ -6,9 +6,10 @@ import (
 	dao "mikou/internal/dao/v1"
 )
 
+// Service  服务层 controller 调用层
 type Service struct {
-	ctx context.Context
-	dao *dao.Dao
+	ctx context.Context // 上下文
+	dao *dao.Dao        // dao 数据层
 }
 
 func New(ctx context.Context) Service {

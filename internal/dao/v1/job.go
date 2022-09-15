@@ -6,7 +6,7 @@ import (
 	"mikou/pkg/app"
 )
 
-// 统计数量
+// CountJob   统计job统计数量
 func (d *Dao) CountJob(param *validate.CountJobRequest) (int, error) {
 
 	Job := &model.Job{
@@ -17,6 +17,7 @@ func (d *Dao) CountJob(param *validate.CountJobRequest) (int, error) {
 	return Job.Count(d.engine)
 }
 
+// ListJob  job 列表
 func (d *Dao) ListJob(param *validate.ListJobRequest, page, pageSize int) ([]*model.Job, error) {
 	Job := &model.Job{
 		Name:   param.Name,
@@ -28,6 +29,7 @@ func (d *Dao) ListJob(param *validate.ListJobRequest, page, pageSize int) ([]*mo
 	return Job.List(d.engine, pageOffset, pageSize)
 }
 
+// CreateJob  创建job
 func (d *Dao) CreateJob(param *validate.CreateJobRequest) (int, error) {
 	Job := &model.Job{
 		Name:       param.Name,
@@ -44,6 +46,7 @@ func (d *Dao) CreateJob(param *validate.CreateJobRequest) (int, error) {
 
 }
 
+// UpdateJob 更新 JOb
 func (d *Dao) UpdateJob(id int, values map[string]interface{}) error {
 	Job := model.Job{
 		Model: model.Model{ID: id},
@@ -51,6 +54,7 @@ func (d *Dao) UpdateJob(id int, values map[string]interface{}) error {
 	return Job.Update(d.engine, values)
 }
 
+// DeleteJob  删除 JOb
 func (d *Dao) DeleteJob(id int) error {
 	Job := model.Job{
 		Model: model.Model{ID: id},
@@ -58,6 +62,7 @@ func (d *Dao) DeleteJob(id int) error {
 	return Job.Delete(d.engine)
 }
 
+// FindJob 查询指定 JOb 得信息
 func (d *Dao) FindJob(param *validate.CommonJob) (*model.Job, error) {
 
 	job := model.Job{
@@ -65,6 +70,8 @@ func (d *Dao) FindJob(param *validate.CommonJob) (*model.Job, error) {
 	}
 	return job.Find(d.engine)
 }
+
+// AllJob  获取所以的job
 func (d *Dao) AllJob() (m []*model.Job, err error) {
 	Job := &model.Job{}
 	return Job.All(d.engine)

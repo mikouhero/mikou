@@ -4,18 +4,12 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57da0a98-af29-4579-8a11-6cebab8df9ee" name="Default Changelist" comment="==">
+    <list default="true" id="57da0a98-af29-4579-8a11-6cebab8df9ee" name="Default Changelist" comment=":zap: 添加备注信息">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/configs/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/configs/config.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/global/db.go" beforeDir="false" afterPath="$PROJECT_DIR$/global/db.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/initConfig/init_cron.go" beforeDir="false" afterPath="$PROJECT_DIR$/initConfig/init_cron.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/initConfig/init_db.go" beforeDir="false" afterPath="$PROJECT_DIR$/initConfig/init_db.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/initConfig/init_log.go" beforeDir="false" afterPath="$PROJECT_DIR$/initConfig/init_log.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/initConfig/init_setting.go" beforeDir="false" afterPath="$PROJECT_DIR$/initConfig/init_setting.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/routers/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/routers/router.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/setting/section.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/setting/section.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/dao/v1/job.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/dao/v1/job.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/service/v1/job.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/service/v1/job.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/service/v1/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/service/v1/service.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +167,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="==" />
-    <option name="LAST_COMMIT_MESSAGE" value="==" />
+    <MESSAGE value=":zap: 添加备注信息" />
+    <option name="LAST_COMMIT_MESSAGE" value=":zap: 添加备注信息" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>

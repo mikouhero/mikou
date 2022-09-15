@@ -12,18 +12,19 @@ type JobService struct {
 	Service
 }
 
-// 统计数量
+// CountJob 统计数量
 func (s *Service) CountJob(param *validate.CountJobRequest) (int, error) {
 
 	return s.dao.CountJob(param)
 }
 
-// 列表数据
+//  ListJob 列表数据
 func (s *Service) ListJob(param *validate.ListJobRequest, pager *app.Pager) ([]*model.Job, error) {
 
 	return s.dao.ListJob(param, pager.Page, pager.PageSize)
 }
 
+// CreateJob  创建job
 func (s *Service) CreateJob(param *validate.CreateJobRequest) (int, error) {
 
 	id, err := s.dao.CreateJob(param)
@@ -34,7 +35,7 @@ func (s *Service) CreateJob(param *validate.CreateJobRequest) (int, error) {
 	return id, err
 }
 
-// 更新信息
+//  CreateJob  更新信息
 func (s *Service) UpdateJob(param *validate.UpdateJobRequest) error {
 	var p = make(map[string]interface{})
 	if param.Name != "" {
@@ -70,6 +71,7 @@ func (s *Service) DeleteJob(param *validate.DeleteJobRequest) error {
 	return s.dao.DeleteJob(param.Id)
 }
 
+// GetJobByID 获取指定job 信息
 func (s *Service) GetJobByID(id int) *model.Job {
 	var p = &validate.CommonJob{
 		Id: id,
@@ -82,7 +84,7 @@ func (s *Service) GetJobByID(id int) *model.Job {
 	return user
 }
 
-// 开启一个job
+// StartJob 开启一个job
 func (s *Service) StartJob(id int) {
 	i := s.GetJobByID(id)
 	if i == nil {
@@ -101,6 +103,7 @@ func (s *Service) StartJob(id int) {
 	}
 }
 
+//startFuncJob  开始一个函数型 job
 func (s *Service) startFuncJob(i *model.Job) {
 	job := &v1.ExecJob{v1.JobCore{
 		Target: i.Target,
@@ -118,12 +121,13 @@ func (s *Service) startFuncJob(i *model.Job) {
 	return
 }
 
+// startHttpFunc 开始一个http型 job
 func (s *Service) startHttpFunc(i *model.Job) {
 	//todo
 	return
 }
 
-//移除一个job
+// RemoveJob 移除一个job
 func (s *Service) RemoveJob(id int) {
 	i := s.GetJobByID(id)
 	if i == nil {
