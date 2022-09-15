@@ -9,6 +9,7 @@ import (
 	"mikou/pkg/logger"
 )
 
+// initLog  初始话日志配置信息
 func initLog() error {
 	global.Logger = logger.NewLogger(&lumberjack.Logger{
 		Filename:  global.AppSetting.LogSavePath + "/" + global.AppSetting.LogFileName + global.AppSetting.LogFileExt,
@@ -19,15 +20,14 @@ func initLog() error {
 	return nil
 }
 
+// initlog2  初始话日志配置信息
 func initlog2() {
 	writeSyncer := getLogWriter()
 	encoder := getEncoder()
 	core := zapcore.NewCore(encoder, writeSyncer, zapcore.DebugLevel)
-	LoggerV2 := zap.New(core, zap.AddCaller(),zap.AddStacktrace(zap.ErrorLevel))
+	LoggerV2 := zap.New(core, zap.AddCaller(), zap.AddStacktrace(zap.ErrorLevel))
 	global.LoggerV2 = LoggerV2.Sugar()
 }
-
-
 
 func getEncoder() zapcore.Encoder {
 	encoderConfig := zap.NewProductionEncoderConfig()

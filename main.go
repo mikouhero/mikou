@@ -18,11 +18,6 @@ func init() {
 // @description 接口文档
 func main() {
 
-	//stock.SaveAllStockListCode()
-	//data := stock.GetDayKline("0.000815")
-	//fmt.Println(data)
-	//global.DBEngineV2.Model(&v1.StockDayKline{}).CreateInBatches(data, 100)
-	//return
 	gin.SetMode(global.ServerSetting.RunMode)
 	router := routers.NewRouter()
 

@@ -7,5 +7,7 @@ import (
 
 var (
 	DBEngine *gorm.DB
+
+	// DBEngine  gorm v2 版本
 	DBEngineV2 *gormv2.DB
 )

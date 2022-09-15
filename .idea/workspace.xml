@@ -4,12 +4,18 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57da0a98-af29-4579-8a11-6cebab8df9ee" name="Default Changelist" comment="1'&#10;==">
+    <list default="true" id="57da0a98-af29-4579-8a11-6cebab8df9ee" name="Default Changelist" comment="==">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/configs/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/configs/config.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/global/db.go" beforeDir="false" afterPath="$PROJECT_DIR$/global/db.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/initConfig/init_cron.go" beforeDir="false" afterPath="$PROJECT_DIR$/initConfig/init_cron.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/initConfig/init_db.go" beforeDir="false" afterPath="$PROJECT_DIR$/initConfig/init_db.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/initConfig/init_log.go" beforeDir="false" afterPath="$PROJECT_DIR$/initConfig/init_log.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/initConfig/init_setting.go" beforeDir="false" afterPath="$PROJECT_DIR$/initConfig/init_setting.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/routers/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/routers/router.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/service/stock/day_kline.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/service/stock/day_kline.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/validate/v1/job.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/validate/v1/job.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/setting/section.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/setting/section.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +55,9 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
+  </component>
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="false" />
   </component>
@@ -76,7 +85,7 @@
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
     <property name="go.watchers.conflict.with.on.save.actions.check.performed" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../gods" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="go.vgo" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -161,6 +170,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="==" />
+    <option name="LAST_COMMIT_MESSAGE" value="==" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>

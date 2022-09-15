@@ -20,6 +20,7 @@ func NewRouter() *gin.Engine {
 	adminMenu := v1.NewAdminMenu()
 	adminLogin := v1.NewAdminLogin()
 	job := v1.NewJob()
+	wechat := v1.NewWechat()
 
 	r.Any("/admin/login", adminLogin.Login)
 
@@ -54,5 +55,8 @@ func NewRouter() *gin.Engine {
 		auth.Any("/login/user_info", adminLogin.UserInfo)
 
 	}
+
+	// 接受微信的消息
+	r.Any("/wechat/api", wechat.Message)
 	return r
 }
