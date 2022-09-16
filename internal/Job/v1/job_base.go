@@ -8,55 +8,10 @@ import (
 	"time"
 )
 
-// 定义一个job 的核心
-type JobCore struct {
-	Id      int
-	Target  string
-	Name    string
-	EntryId int
-	Cron    string
-	Args    string
-}
-
-// http 类型job
-type HttpJob struct {
-	JobCore
-}
-
-// 函数类型 job
-type ExecJob struct {
-	JobCore
-}
-
-//函数类型的job 执行
-func (e *ExecJob) Run() {
-	startTime := time.Now()
-	// 通过全局job 集合获得指定的执行函数
-	var obj = jobList[e.Target]
-	if obj == nil {
-		global.LoggerV2.Warnf("[Job]  %s  is nil ", e.Target)
-		return
-	}
-	// 执行 job struct 的 Exec 方法
-	err := CallExec(obj.(JobsExec), e.Args)
-	if err != nil {
-		// todo
-		global.LoggerV2.Errorf("[Job]  %s  exec failed  %s ", e.Target, err)
-	}
-	endTime := time.Now()
-	spend := endTime.Sub(startTime)
-	global.LoggerV2.Infof("[Job] JobCore %s exec success , spend :%v", e.Name, spend)
-	return
-}
-
-func (h *HttpJob) Run() {
-	// todo
-}
-
-// 启动时,加载所有job
+//JobSetUp  启动时,加载所有job
 func JobSetUp() {
 	// 初始化job list
-	initList()
+	initJobList()
 
 	d := dao.New(global.DBEngineV2)
 
@@ -98,7 +53,39 @@ func JobSetUp() {
 
 }
 
-// 添加job
+// Run 函数类型的job 执行
+func (e *ExecJob) Run() {
+	startTime := time.Now()
+	// 通过全局job 集合获得指定的执行函数
+	var obj = jobList[e.Target]
+	if obj == nil {
+		global.LoggerV2.Warnf("[Job]  %s  is nil ", e.Target)
+		return
+	}
+	// 执行 job struct 的 Exec 方法
+	err := CallExec(obj.(JobsExec), e.Args)
+	if err != nil {
+		// todo
+		global.LoggerV2.Errorf("[Job]  %s  exec failed  %s ", e.Target, err)
+	}
+	endTime := time.Now()
+	spend := endTime.Sub(startTime)
+	global.LoggerV2.Infof("[Job] JobCore %s exec success , spend :%v", e.Name, spend)
+	return
+}
+
+//addJob  第三方包添加job
+func (e *ExecJob) addJob(c *cron.Cron) (int, error) {
+	id, err := c.AddJob(e.Cron, e)
+	return int(id), err
+}
+
+// Run 待实现
+func (h *HttpJob) Run() {
+	// todo
+}
+
+// AddJob 添加job
 func AddJob(c *cron.Cron, job Job) (int, error) {
 	if job == nil {
 		return 0, nil
@@ -106,12 +93,7 @@ func AddJob(c *cron.Cron, job Job) (int, error) {
 	return job.addJob(c)
 }
 
-// 第三方包添加job
-func (job *ExecJob) addJob(c *cron.Cron) (int, error) {
-	id, e := c.AddJob(job.Cron, job)
-	return int(id), e
-}
-
+//RemoveJob
 func RemoveJob(c *cron.Cron, entryID int) chan struct{} {
 	ch := make(chan struct{})
 
@@ -122,4 +104,9 @@ func RemoveJob(c *cron.Cron, entryID int) chan struct{} {
 	}
 	app.Go(f)
 	return ch
+}
+
+//CallExec   定义一个外部调用的方法
+func CallExec(e JobsExec, arg interface{}) error {
+	return e.Exec(arg)
 }
