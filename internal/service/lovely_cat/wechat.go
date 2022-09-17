@@ -2,33 +2,28 @@ package lovely_cat
 
 import (
 	"bytes"
+	"context"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"mikou/global"
+	dao "mikou/internal/dao/v1"
 	"net/http"
 	"net/url"
 )
 
 var host string = "http://127.0.0.1:8073/send"
 
-type response struct {
-	Code int    `json:"code"`
-	Data string `json:"data"`
-}
-
-type friendList struct {
-	Wxid      string `json:"wxid"`
-	Nickname  string `json:"nickname"`
-	RobotWxid string `json:"robot_wxid"`
-	Note      string `json:"note"`
-	WxNum     string `json:"wx_num"`
-}
-
 type WechatService struct {
+	ctx context.Context // 上下文
+	dao *dao.Dao        // dao 数据层
 }
 
-func NewWechatService() WechatService {
-	return WechatService{}
+//  NewWechatService 可爱猫微信接口服务层
+func NewWechatService(ctx context.Context) WechatService {
+	svc := WechatService{ctx: ctx}
+	svc.dao = dao.New(global.DBEngineV2)
+	return svc
 }
 
 /**
@@ -64,29 +59,86 @@ func (w *WechatService) SendTextMsg() {
 
 }
 
-/**
-* 取好友列表
-* @access public
-* @param  string $robwxid    账户id
-* @param  string $is_refresh 是否刷新
-* @return string 当前框架已登录的账号信息列表
- */
-func (w *WechatService) GetFriendList(robwxid string, is_refresh int) {
-
-	m := make(map[string]interface{})
-	m["type"] = 204
-	m["robwxid"] = robwxid
-	m["is_refresh"] = is_refresh
-
-	b := w.sendHttp(m)
+// GetLoggedAccountList 获取当前登录用户的列表
+func (w *WechatService) GetLoggedAccountList() []LoginUser {
+	param := map[string]interface{}{
+		"type": GET_LOGGED_ACCOUNT_LIST,
+	}
+	b := w.sendHttp(param)
 	data := response{}
-	json.Unmarshal(b, &data)
-	datas, _ := url.QueryUnescape(data.Data)
-	var a []friendList
-	json.Unmarshal([]byte(datas), &a)
+	_ = json.Unmarshal(b, &data)
+	lists, _ := url.QueryUnescape(data.Data)
+	var user []LoginUser
+	_ = json.Unmarshal([]byte(lists), &user)
+	return user
+}
+
+// GetRobotHeadimgurl  获取头像
+func (w *WechatService) GetRobotHeadimgurl(robwxid string) {
+	param := map[string]interface{}{
+		"type":       GET_ROBOT_HEADIMGURL,
+		"robot_wxid": robwxid,
+	}
+	b := w.sendHttp(param)
+	data := response{}
+	_ = json.Unmarshal(b, &data)
+	fmt.Println(string(b))
+	// todo  未返回结构
 
 }
 
+// GetFriendList  取好友列表
+func (w *WechatService) GetFriendList(robwxid string, is_refresh int) []FriendList {
+	param := map[string]interface{}{
+		"type":       GET_FRIEND_LIST,
+		"robot_wxid": robwxid,
+		"is_refresh": is_refresh,
+	}
+	b := w.sendHttp(param)
+	data := response{}
+	_ = json.Unmarshal(b, &data)
+	lists, _ := url.QueryUnescape(data.Data)
+	var friendList []FriendList
+	_ = json.Unmarshal([]byte(lists), &friendList)
+	return friendList
+}
+
+// GetGroupList 获取群聊
+func (w *WechatService) GetGroupList(robwxid string, is_refresh int) []GroupList {
+	param := map[string]interface{}{
+		"type":       GET_GROUP_LIST,
+		"robot_wxid": robwxid,
+		"is_refresh": is_refresh,
+	}
+	b := w.sendHttp(param)
+	data := response{}
+	_ = json.Unmarshal(b, &data)
+	lists, _ := url.QueryUnescape(data.Data)
+	var list []GroupList
+	_ = json.Unmarshal([]byte(lists), &list)
+	return list
+}
+
+func (w *WechatService) GetGroupMemberList(robwxid, group_wxid string, is_refresh int) {
+	param := map[string]interface{}{
+		"type":       GET_GROUP_MEMBER_LIST,
+		"robot_wxid": robwxid,
+		"group_wxid": group_wxid,
+		"is_refresh": 1,
+	}
+	b := w.sendHttp(param)
+	fmt.Println((string(b)))
+
+	data := response{}
+	_ = json.Unmarshal(b, &data)
+	fmt.Println((data))
+	lists, _ := url.QueryUnescape(data.Data)
+	fmt.Println(string(lists))
+	//var list []GroupList
+	//_ = json.Unmarshal([]byte(lists), &list)
+}
+
+// sendHttp 调用可爱猫接口
 func (w *WechatService) sendHttp(data map[string]interface{}) []byte {
 	//JSON序列化
 	configData, _ := json.Marshal(data)
@@ -97,14 +149,12 @@ func (w *WechatService) sendHttp(data map[string]interface{}) []byte {
 	req, err := http.NewRequest("POST", host, param)
 
 	if err != nil {
-		fmt.Println(err)
 		return nil
 	}
 
 	//发送请求
 	res, err := client.Do(req)
 	if err != nil {
-		fmt.Println(err)
 		return nil
 	}
 	defer res.Body.Close()
@@ -112,7 +162,6 @@ func (w *WechatService) sendHttp(data map[string]interface{}) []byte {
 	//返回结果
 	body, err := ioutil.ReadAll(res.Body)
 	if err != nil {
-		fmt.Println(err)
 		return nil
 	}
 
