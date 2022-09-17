@@ -40,9 +40,6 @@ func (w Wechat) Message(c *gin.Context) {
 func (w Wechat) GetFriendList(c *gin.Context) {
 	service := lovely_cat.NewWechatService(c)
 	list := service.GetFriendList("", 1)
-	//list := service.GetLoggedAccountList()
-	//list := service.GetGroupList("wxid_ysq8klcfelmf22", 0)
-	service.GetGroupMemberList("wxid_ysq8klcfelmf22", "24976121095@chatroom", 1)
 	response := app.NewResponse(c)
 	response.ToResponse(list)
 }
