@@ -1,18 +1,10 @@
 package lovely_cat
 
 import (
-	"bytes"
 	"context"
-	"encoding/json"
-	"fmt"
-	"io/ioutil"
 	"mikou/global"
 	dao "mikou/internal/dao/v1"
-	"net/http"
-	"net/url"
 )
-
-var host string = "http://127.0.0.1:8073/send"
 
 type WechatService struct {
 	ctx context.Context // 上下文
@@ -55,115 +47,3 @@ func NewWechatService(ctx context.Context) WechatService {
 退出群聊                  quit_group()
 邀请加入群聊              invite_in_group()
 */
-func (w *WechatService) SendTextMsg() {
-
-}
-
-// GetLoggedAccountList 获取当前登录用户的列表
-func (w *WechatService) GetLoggedAccountList() []LoginUser {
-	param := map[string]interface{}{
-		"type": GET_LOGGED_ACCOUNT_LIST,
-	}
-	b := w.sendHttp(param)
-	data := response{}
-	_ = json.Unmarshal(b, &data)
-	lists, _ := url.QueryUnescape(data.Data)
-	var user []LoginUser
-	_ = json.Unmarshal([]byte(lists), &user)
-	return user
-}
-
-// GetRobotHeadimgurl  获取头像
-func (w *WechatService) GetRobotHeadimgurl(robwxid string) {
-	param := map[string]interface{}{
-		"type":       GET_ROBOT_HEADIMGURL,
-		"robot_wxid": robwxid,
-	}
-	b := w.sendHttp(param)
-	data := response{}
-	_ = json.Unmarshal(b, &data)
-	fmt.Println(string(b))
-	// todo  未返回结构
-
-}
-
-// GetFriendList  取好友列表
-func (w *WechatService) GetFriendList(robwxid string, is_refresh int) []FriendList {
-	param := map[string]interface{}{
-		"type":       GET_FRIEND_LIST,
-		"robot_wxid": robwxid,
-		"is_refresh": is_refresh,
-	}
-	b := w.sendHttp(param)
-	data := response{}
-	_ = json.Unmarshal(b, &data)
-	lists, _ := url.QueryUnescape(data.Data)
-	var friendList []FriendList
-	_ = json.Unmarshal([]byte(lists), &friendList)
-	return friendList
-}
-
-// GetGroupList 获取群聊
-func (w *WechatService) GetGroupList(robwxid string, is_refresh int) []GroupList {
-	param := map[string]interface{}{
-		"type":       GET_GROUP_LIST,
-		"robot_wxid": robwxid,
-		"is_refresh": is_refresh,
-	}
-	b := w.sendHttp(param)
-	data := response{}
-	_ = json.Unmarshal(b, &data)
-	lists, _ := url.QueryUnescape(data.Data)
-	var list []GroupList
-	_ = json.Unmarshal([]byte(lists), &list)
-	return list
-}
-
-func (w *WechatService) GetGroupMemberList(robwxid, group_wxid string, is_refresh int) {
-	param := map[string]interface{}{
-		"type":       GET_GROUP_MEMBER_LIST,
-		"robot_wxid": robwxid,
-		"group_wxid": group_wxid,
-		"is_refresh": 1,
-	}
-	b := w.sendHttp(param)
-	fmt.Println((string(b)))
-
-	data := response{}
-	_ = json.Unmarshal(b, &data)
-	fmt.Println((data))
-	lists, _ := url.QueryUnescape(data.Data)
-	fmt.Println(string(lists))
-	//var list []GroupList
-	//_ = json.Unmarshal([]byte(lists), &list)
-}
-
-// sendHttp 调用可爱猫接口
-func (w *WechatService) sendHttp(data map[string]interface{}) []byte {
-	//JSON序列化
-	configData, _ := json.Marshal(data)
-	param := bytes.NewBuffer([]byte(configData))
-
-	//构建http请求
-	client := &http.Client{}
-	req, err := http.NewRequest("POST", host, param)
-
-	if err != nil {
-		return nil
-	}
-
-	//发送请求
-	res, err := client.Do(req)
-	if err != nil {
-		return nil
-	}
-	defer res.Body.Close()
-
-	//返回结果
-	body, err := ioutil.ReadAll(res.Body)
-	if err != nil {
-		return nil
-	}
-
-	return body
-}

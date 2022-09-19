@@ -59,6 +59,12 @@ func NewRouter() *gin.Engine {
 	// 接受微信的消息
 	r.Any("/wechat/api", wechat.Message)
 	r.Any("/wechat/GetFriendList", wechat.GetFriendList)
+	r.Any("/wechat/GetGroupList", wechat.GetGroupList)
+	r.Any("/wechat/GetGroupMemberList", wechat.GetGroupMemberList)
+	r.Any("/wechat/GetGroupMember", wechat.GetGroupMember)
+
+	r.Any("/wechat/SendTextMsg", wechat.SendTextMsg)
+	r.Any("/wechat/SendGroupAtMsg", wechat.SendGroupAtMsg)
 
 	return r
 }

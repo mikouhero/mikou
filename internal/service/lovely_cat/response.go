@@ -39,3 +39,13 @@ type GroupList struct {
 	MemberCount int    `json:"memberCount"`
 	IsManager   int    `json:"isManager"`
 }
+
+// GroupList  群聊成员列表
+type GroupMemberList struct {
+	Wxid       string `json:"wxid"`
+	WxNum      string `json:"wx_num"`
+	Nickname   string `json:"nickname"`
+	Sex        int    `json:"sex"`
+	Identity   int    `json:"identity"`
+	Headimgurl string `json:"headimgurl"`
+}
