@@ -3,11 +3,10 @@ package v1
 import (
 	"fmt"
 	"github.com/gin-gonic/gin"
-	"mikou/global"
 	"mikou/internal/service/lovely_cat"
+	"mikou/internal/service/tencent_dialogue"
 	validate "mikou/internal/validate/v1"
 	"mikou/pkg/app"
-	"mikou/pkg/errcode"
 )
 
 type Wechat struct {
@@ -24,16 +23,18 @@ func (w Wechat) Message(c *gin.Context) {
 	// 请求参数验证
 	param := validate.MessageRequest{}
 	response := app.NewResponse(c)
-	valid, errs := app.BindAndValid(c, &param)
-	if !valid {
-		//global.Logger.Errorf("app.BindAndValid errs: %v", errs)
-		global.LoggerV2.Errorf("app.BindAndValid errs: %v", errs)
-		response.ToErrorResponse(errcode.InvalidParams.WithDetails(errs.Errors()...))
-		return
+	_, _ = app.BindAndValid(c, &param)
+
+	if param.FinalFromWxid == param.FromWxid && param.FinalFromWxid == "wxid_cpa22q48911g22" {
+		service := tencent_dialogue.NewDialogueService(nil)
+		ws := lovely_cat.NewWechatService(c)
+
+		text, _ := service.Text(param.FinalFromWxid, param.Msg)
+		for _, v := range text {
+			ws.SendTextMsg(param.RobotWxid, param.FromWxid, *v.Content)
+		}
 	}
-
-	fmt.Println("reveive")
-
+	response.ToResponse(nil)
 }
 
 // GetFriendList 获取当前好友列表

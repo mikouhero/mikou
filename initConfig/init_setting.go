@@ -65,6 +65,10 @@ func initSetting() error {
 	if err != nil {
 		return err
 	}
+	err = GDSetting.ReadSection("Tencent", &global.TencentSetting)
+	if err != nil {
+		return err
+	}
 
 	global.ServerSetting.ReadTimeout *= time.Second
 	global.ServerSetting.WriteTimeout *= time.Second

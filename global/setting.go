@@ -16,4 +16,5 @@ var (
 	LoggerV2          *zap.SugaredLogger
 	TokenSetting      *setting.TokenSettingS
 	Cron              *cron.Cron
+	TencentSetting    *setting.Tencent
 )

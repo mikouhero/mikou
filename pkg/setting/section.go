@@ -47,3 +47,10 @@ type TokenSettingS struct {
 	Expires int
 	Key     string
 }
+
+type Tencent struct {
+	DialogueSecretId  string
+	DialogueSecretKey string
+	DialogueBotId     string
+	DialogueBotEnv    string
+}
