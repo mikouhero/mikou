@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57da0a98-af29-4579-8a11-6cebab8df9ee" name="Default Changelist" comment=":zap: 添加备注信息">
+    <list default="true" id="57da0a98-af29-4579-8a11-6cebab8df9ee" name="Default Changelist" comment=":zap: 调用腾讯智能闲聊接口">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/configs/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/configs/config.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/dao/v1/job.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/dao/v1/job.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/service/v1/job.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/service/v1/job.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/service/v1/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/service/v1/service.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/routers/api/v1/wechat.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/routers/api/v1/wechat.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,18 +79,18 @@
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
     <property name="go.watchers.conflict.with.on.save.actions.check.performed" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/internal/service/lovely_cat" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="go.vgo" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\go\mikou\internal\service\lovely_cat" />
       <recent name="D:\go\mikou" />
       <recent name="D:\go\mikou\internal\Job\v1\list" />
       <recent name="D:\go\mikou\internal\model\v1" />
       <recent name="C:\Users\mikou.hu\go\src\mikou\internal\routers\api\v1" />
-      <recent name="C:\Users\mikou.hu\go\src\mikou\internal\dao\v1" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\mikou.hu\go\src\mikou\storage" />
@@ -168,7 +168,10 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="==" />
     <MESSAGE value=":zap: 添加备注信息" />
-    <option name="LAST_COMMIT_MESSAGE" value=":zap: 添加备注信息" />
+    <MESSAGE value=":zap: 获取好友群列表信息" />
+    <MESSAGE value=":zap: 发送消息接口" />
+    <MESSAGE value=":zap: 调用腾讯智能闲聊接口" />
+    <option name="LAST_COMMIT_MESSAGE" value=":zap: 调用腾讯智能闲聊接口" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>

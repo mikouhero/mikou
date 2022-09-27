@@ -25,7 +25,8 @@ func (w Wechat) Message(c *gin.Context) {
 	response := app.NewResponse(c)
 	_, _ = app.BindAndValid(c, &param)
 
-	if param.FinalFromWxid == param.FromWxid && param.FinalFromWxid == "wxid_cpa22q48911g22" {
+	if param.Type == lovely_cat.PRIVATE_MESSAGE {
+		fmt.Println(param)
 		service := tencent_dialogue.NewDialogueService(nil)
 		ws := lovely_cat.NewWechatService(c)
 
@@ -91,6 +92,7 @@ func (w Wechat) SendTextMsg(c *gin.Context) {
 	response.ToResponse(nil)
 }
 
+// SendGroupAtMsg 发送群聊文本消息
 func (w Wechat) SendGroupAtMsg(c *gin.Context) {
 	param := validate.SendMsgRequest{}
 	_, _ = app.BindAndValid(c, &param)
